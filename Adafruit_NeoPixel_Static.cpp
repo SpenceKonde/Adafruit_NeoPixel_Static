@@ -36,7 +36,7 @@
 
 // Constructor when length, pin and type are known at compile-time:
 Adafruit_NeoPixel::Adafruit_NeoPixel(uint16_t n, uint8_t p, neoPixelType t, uint8_t *pxl) :
-  brightness(0), pixels(pxl), endTime(0), begun(true)
+  brightness(0), pixels(pxl), endTime(0)
 {
   //boolean oldThreeBytesPerPixel = (wOffset == rOffset); // false if RGBW
 

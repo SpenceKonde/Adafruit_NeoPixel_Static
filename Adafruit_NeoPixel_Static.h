@@ -149,11 +149,11 @@ class Adafruit_NeoPixel {
 
  private:
 
-  boolean
-#ifdef NEO_KHZ400  // If 400 KHz NeoPixel support enabled...
-    is800KHz,      // ...true if 800 KHz pixels
+#ifdef NEO_KHZ400
+  boolean  // If 400 KHz NeoPixel support enabled...
+  is800KHz;      // ...true if 800 KHz pixels
 #endif
-    begun;         // true if begin() previously called
+    //begun;         // true if begin() previously called
   uint16_t
     numLEDs,       // Number of RGB LEDs in strip
     numBytes;      // Size of 'pixels' buffer below (3 or 4 bytes/pixel)
