@@ -287,13 +287,13 @@ void Adafruit_NeoPixel::show(void) {
         [hi]     "r" (hi),
         [lo]     "r" (lo));
 
-    } else if(port == &PORTB) {
+    } else if(port == &PORTA) {
 
 #endif // PORTD
 
       // Same as above, just switched to PORTB and stripped of comments.
-      hi = PORTB |  pinMask;
-      lo = PORTB & ~pinMask;
+      hi = PORTA |  pinMask;
+      lo = PORTA & ~pinMask;
       n1 = lo;
       if(b & 0x80) n1 = hi;
 
@@ -364,7 +364,7 @@ void Adafruit_NeoPixel::show(void) {
         "out  %[port] , %[lo]"    "\n\t"
         "brne headB"              "\n"
       : [byte] "+r" (b), [n1] "+r" (n1), [n2] "+r" (n2), [count] "+w" (i)
-      : [port] "I" (_SFR_IO_ADDR(PORTB)), [ptr] "e" (ptr), [hi] "r" (hi),
+      : [port] "I" (_SFR_IO_ADDR(PORTA)), [ptr] "e" (ptr), [hi] "r" (hi),
         [lo] "r" (lo));
 
 #ifdef PORTD
@@ -498,12 +498,12 @@ void Adafruit_NeoPixel::show(void) {
           [hi]     "r" (hi),
           [lo]     "r" (lo));
 
-    } else if(port == &PORTB) {
+    } else if(port == &PORTA) {
 
 #endif // PORTD
 
-      hi   = PORTB |  pinMask;
-      lo   = PORTB & ~pinMask;
+      hi   = PORTA |  pinMask;
+      lo   = PORTA & ~pinMask;
       next = lo;
       if(b & 0x80) next = hi;
 
@@ -547,7 +547,7 @@ void Adafruit_NeoPixel::show(void) {
          "ret"                    "\n\t"
          "doneB:"                 "\n"
         : [byte] "+r" (b), [next] "+r" (next), [count] "+w" (i)
-        : [port] "I" (_SFR_IO_ADDR(PORTB)), [ptr] "e" (ptr), [hi] "r" (hi),
+        : [port] "I" (_SFR_IO_ADDR(PORTA)), [ptr] "e" (ptr), [hi] "r" (hi),
           [lo] "r" (lo));
 
 #ifdef PORTD
