@@ -6,7 +6,7 @@ pixels must be a pointer to a uint8_t array big enough to fit all the pixels; bo
 
 ```
 
-uint8_t pixels[6];
+uint8_t pixels[6]; //buffer - 6 bytes = 2 LEDs * 3 color channels
 pinMode(14,OUTPUT); //this throws away the advantage of eliminating pinMode - you might want to replace this with directly setting the DDRx register. 
 Adafruit_NeoPixel leds = Adafruit_NeoPixel(2, 14, NEO_GRB + NEO_KHZ800, pixels);
 
@@ -16,7 +16,7 @@ Changes from basic neopixel library:
 * Anything not-AVR has not been tested and may or may not work. 
 * There is no begin() call. All it did was set an internal boolean to true once pinMode() was removed, ie, it just wasted flash. 
 * You cannot change the length of the strip, or the type of neopixels, or the pin, at runtime. 
-* You must create an array to hold the buffer, and pass it to the constructor. 
+* You must create an uint8_t array to hold the buffer, and pass it to the constructor. 
 * You must supply all four arguments to the constructor. 
 * You must set the pin mode to OUTPUT (if you're trying to save flash by getting rid of pinMode, do it by setting the DDR registers, which you'd a;ready be doing)
 * 400khz neopixels are not supported. 
